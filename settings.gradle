@@ -2,3 +2,4 @@ rootProject.name = 'java-classloading'
 
 include 'java-8'
 include 'java-8:manual'
+include 'java-8:auto'

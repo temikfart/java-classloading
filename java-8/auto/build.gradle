@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.habr.j8.auto'
+version = '1.0'
+
+compileJava {
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(8)
+        }
+    }
+}
+
+application {
+    mainClassName = 'com.habr.j8.auto.Main'
+
+    applicationDefaultJvmArgs = [
+            '-Djava.system.class.loader=com.habr.j8.auto.CustomClassLoader',
+    ]
+}
+
+sourceSets {
+    main.java.srcDirs = ['src']
+}
