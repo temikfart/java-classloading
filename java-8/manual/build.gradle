@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.habr.j8.manual'
+version = '1.0'
+
+compileJava {
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(8)
+        }
+    }
+}
+
+application {
+    mainClassName = 'com.habr.j8.manual.Main'
+}
+
+sourceSets {
+    main.java.srcDirs = ['src']
+}
