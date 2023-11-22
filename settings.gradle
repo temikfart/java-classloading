@@ -1,5 +1,6 @@
 rootProject.name = 'java-classloading'
 
-include 'java-8'
 include 'java-8:manual'
 include 'java-8:auto'
+
+include 'java-17:manual:one-module:java8style'
