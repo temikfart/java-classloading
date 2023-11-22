@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.habr.j17.auto.onemodule.j17style'
+version = '1.0'
+
+compileJava {
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
+    }
+}
+
+application {
+    mainClassName = 'com.habr.j17.auto.onemodule.j17style.Main'
+
+    applicationDefaultJvmArgs = [
+            '-Djava.system.class.loader=com.habr.j17.auto.onemodule.j17style.CustomClassLoader',
+    ]
+}
+
+sourceSets {
+    main.java.srcDirs = ['src']
+}
+
+jar {
+    manifest {
+        attributes(
+                "Main-Class": application.mainClass
+        )
+    }
+}
