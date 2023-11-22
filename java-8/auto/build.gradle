@@ -25,3 +25,11 @@ application {
 sourceSets {
     main.java.srcDirs = ['src']
 }
+
+jar {
+    manifest {
+        attributes(
+                "Main-Class": application.mainClass
+        )
+    }
+}
