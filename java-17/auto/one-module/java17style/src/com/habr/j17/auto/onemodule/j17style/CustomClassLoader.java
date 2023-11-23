@@ -37,15 +37,8 @@ public class CustomClassLoader extends ClassLoader {
             if (inputStream == null)
                 throw new RuntimeException();
 
-            byte[] buffer;
-            ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
+            byte[] buffer = inputStream.readAllBytes();
 
-            int nextValue;
-            while ((nextValue = inputStream.read()) != -1) {
-                byteStream.write(nextValue);
-            }
-
-            buffer = byteStream.toByteArray();
             return defineClass(name, buffer, 0, buffer.length);
         } catch (RuntimeException | IOException e) {
             throw new RuntimeException("Failed to read from input stream", e);
