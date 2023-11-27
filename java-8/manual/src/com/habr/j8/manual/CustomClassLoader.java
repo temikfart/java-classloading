@@ -8,43 +8,44 @@ import java.io.InputStream;
 public class CustomClassLoader extends ClassLoader {
     @Override
     public Class<?> loadClass(String name) throws ClassNotFoundException {
-        synchronized (getClassLoadingLock(name)) {
-            Class<?> c = findLoadedClass(name);
-            if (c != null)
-                return c;
+        Class<?> c = findLoadedClass(name);
+        if (c != null)
+            return c;
 
-            String APP_GROUP = "com.habr";
-            if (name.startsWith(APP_GROUP)) {
+        String APP_GROUP = "com.habr";
+        if (name.startsWith(APP_GROUP)) {
+            c = findClass(name);
+            if (c != null) {
                 System.out.println("CCL: Loading " + name);
-                c = loadClassFromFile(name);
-
-                if (c != null)
-                    return c;
+                return c;
             }
+        }
 
-            System.out.println("CCL: Delegating " + name);
-            return super.loadClass(name);
+        System.out.println("CCL: Delegating " + name);
+        return super.loadClass(name);
+    }
+
+    @Override
+    protected Class<?> findClass(String name) throws ClassNotFoundException {
+        String classFile = name.replace('.', File.separatorChar) + ".class";
+        try (InputStream inputStream = getResourceAsStream(classFile)) {
+            if (inputStream == null)
+                throw new ClassNotFoundException();
+
+            byte[] bytecode = readAllBytes(inputStream);
+            return defineClass(name, bytecode, 0, bytecode.length);
+        } catch (IOException e) {
+            throw new ClassNotFoundException();
         }
     }
 
-    private Class<?> loadClassFromFile(String name) {
-        String classFile = name.replace('.', File.separatorChar) + ".class";
-        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(classFile)) {
-            if (inputStream == null)
-                throw new RuntimeException();
-
-            byte[] buffer;
-            ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
-
-            int nextValue;
-            while ((nextValue = inputStream.read()) != -1) {
-                byteStream.write(nextValue);
-            }
-
-            buffer = byteStream.toByteArray();
-            return defineClass(name, buffer, 0, buffer.length);
-        } catch (RuntimeException | IOException e) {
-            throw new RuntimeException("Failed to read from input stream", e);
+    private byte[] readAllBytes(InputStream inputStream) throws IOException {
+        int nextValue;
+        ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
+        while ((nextValue = inputStream.read()) != -1) {
+            byteStream.write(nextValue);
         }
+
+        return byteStream.toByteArray();
     }
 }
