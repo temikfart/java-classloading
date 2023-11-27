@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.habr.j17.auto.fewmodules.together.dependent'
+version = '1.0'
+
+layout.buildDirectory = getParent().layout.buildDirectory
+
+compileJava {
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
+    }
+}
+
+application {
+    mainClassName = 'com.habr.j17.auto.fewmodules.together.dependent.Main'
+
+    applicationDefaultJvmArgs = [
+            '-Djava.system.class.loader=com.habr.j17.auto.fewmodules.together.dependent.CustomClassLoader',
+    ]
+}
+
+dependencies {
+    implementation project(':java-17:auto:few-modules:together:dependency')
+}
+
+sourceSets {
+    main.java.srcDirs = ['src']
+}
+
+jar {
+    manifest {
+        attributes(
+                "Main-Class": application.mainClass
+        )
+    }
+}
