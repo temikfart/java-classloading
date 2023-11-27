@@ -1,6 +1,5 @@
 package com.habr.j17.auto.onemodule.j8style;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,36 +11,34 @@ public class CustomClassLoader extends ClassLoader {
 
     @Override
     public Class<?> loadClass(String name) throws ClassNotFoundException {
-        synchronized (getClassLoadingLock(name)) {
-            Class<?> c = findLoadedClass(name);
-            if (c != null)
-                return c;
+        Class<?> c = findLoadedClass(name);
+        if (c != null)
+            return c;
 
-            String APP_GROUP = "com.habr";
-            if (name.startsWith(APP_GROUP)) {
+        String APP_GROUP = "com.habr";
+        if (name.startsWith(APP_GROUP)) {
+            c = findClass(name);
+            if (c != null) {
                 System.out.println("CCL: Loading " + name);
-                c = loadClassFromFile(name);
-
-                if (c != null)
-                    return c;
+                return c;
             }
-
-            System.out.println("CCL: Delegating " + name);
-            return super.loadClass(name);
         }
+
+        System.out.println("CCL: Delegating " + name);
+        return super.loadClass(name);
     }
 
-    private Class<?> loadClassFromFile(String name) {
+    @Override
+    protected Class<?> findClass(String name) throws ClassNotFoundException {
         String classFile = name.replace('.', File.separatorChar) + ".class";
-        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(classFile)) {
+        try (InputStream inputStream = getResourceAsStream(classFile)) {
             if (inputStream == null)
-                throw new RuntimeException();
+                throw new ClassNotFoundException();
 
-            byte[] buffer = inputStream.readAllBytes();
-
-            return defineClass(name, buffer, 0, buffer.length);
-        } catch (RuntimeException | IOException e) {
-            throw new RuntimeException("Failed to read from input stream", e);
+            byte[] bytecode = inputStream.readAllBytes();
+            return defineClass(name, bytecode, 0, bytecode.length);
+        } catch (IOException e) {
+            throw new ClassNotFoundException();
         }
     }
 }
