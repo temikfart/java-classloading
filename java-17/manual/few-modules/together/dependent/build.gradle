@@ -6,8 +6,6 @@ plugins {
 group = 'com.habr.j17.manual.fewmodules.together.dependent'
 version = '1.0'
 
-layout.buildDirectory = getParent().layout.buildDirectory
-
 compileJava {
     java {
         toolchain {
