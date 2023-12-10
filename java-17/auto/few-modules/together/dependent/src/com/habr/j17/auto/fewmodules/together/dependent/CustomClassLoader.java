@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class CustomClassLoader extends ClassLoader {
+    private final String PKG_PREFIX = "com.habr";
+
     public CustomClassLoader(ClassLoader parent) {
         super(parent);
     }
@@ -15,8 +17,7 @@ public class CustomClassLoader extends ClassLoader {
         if (c != null)
             return c;
 
-        String APP_GROUP = "com.habr";
-        if (name.startsWith(APP_GROUP)) {
+        if (name.startsWith(PKG_PREFIX)) {
             c = findClass(name);
             if (c != null) {
                 System.out.println("CCL: Loading " + name);
@@ -31,6 +32,7 @@ public class CustomClassLoader extends ClassLoader {
     @Override
     protected Class<?> findClass(String name) throws ClassNotFoundException {
         String classFile = name.replace('.', File.separatorChar) + ".class";
+        System.out.println("CCL: Finding " + classFile);
         try (InputStream inputStream = getResourceAsStream(classFile)) {
             if (inputStream == null)
                 throw new ClassNotFoundException();
