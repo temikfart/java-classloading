@@ -9,6 +9,9 @@ include 'java-17:manual:one-module:java17style'
 include 'java-17:manual:few-modules:together:dependency'
 include 'java-17:manual:few-modules:together:dependent'
 
+include 'java-17:manual:few-modules:separately:no-deps:loading'
+include 'java-17:manual:few-modules:separately:no-deps:loadable'
+
 include 'java-17:auto:one-module:java8style'
 include 'java-17:auto:one-module:java17style'
 
