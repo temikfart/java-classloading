@@ -7,6 +7,7 @@ import java.io.InputStream;
 
 public class CustomClassLoader extends ClassLoader {
     private final String PKG_PREFIX = "com.habr";
+
     @Override
     public Class<?> loadClass(String name) throws ClassNotFoundException {
         Class<?> c = findLoadedClass(name);
