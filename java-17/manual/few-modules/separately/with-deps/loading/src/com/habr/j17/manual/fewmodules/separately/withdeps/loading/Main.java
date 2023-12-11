@@ -10,9 +10,9 @@ import java.util.Set;
 public class Main {
     public static void main(String[] args) {
         try {
-            Path loadableModulePath = Paths.get("../../../loadable/build/libs/loadable-1.0.jar");
+            Path loadableModulePath = Paths.get("../loadable/build/libs/loadable-1.0.jar");
             String loadableModuleName = "manual.fewmodules.separately.withdeps.loadable";
-            Path dependencyModulePath = Paths.get("../../../dependency/build/libs/dependency-1.0.jar");
+            Path dependencyModulePath = Paths.get("../dependency/build/libs/dependency-1.0.jar");
             String dependencyModuleName = "manual.fewmodules.separately.withdeps.dependency";
 
             String mainClassName = "com.habr.j17.manual.fewmodules.separately.withdeps.loadable.Main";

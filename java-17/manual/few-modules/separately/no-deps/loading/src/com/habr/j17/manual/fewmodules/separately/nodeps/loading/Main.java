@@ -10,7 +10,7 @@ import java.util.Set;
 public class Main {
     public static void main(String[] args) {
         try {
-            Path modulePath = Paths.get("../../../loadable/build/libs/loadable-1.0.jar");
+            Path modulePath = Paths.get("../loadable/build/libs/loadable-1.0.jar");
             String moduleName = "manual.fewmodules.separately.nodeps.loadable";
             String mainClassName = "com.habr.j17.manual.fewmodules.separately.nodeps.loadable.Main";
 
