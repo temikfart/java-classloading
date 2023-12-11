@@ -1,0 +1,18 @@
+plugins {
+    id 'java-library'
+}
+
+group = 'com.habr.j17.manual.fewmodules.separately.nodeps.dependency'
+version = '1.0'
+
+compileJava {
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
+    }
+}
+
+sourceSets {
+    main.java.srcDirs = ['src']
+}
