@@ -2,7 +2,7 @@ plugins {
     id 'java-library'
 }
 
-group = 'com.habr.j17.manual.fewmodules.separately.nodeps.dependency'
+group = 'ru.ispras.j17.manual.fewmodules.separately.nodeps.dependency'
 version = '1.0'
 
 compileJava {

@@ -3,7 +3,7 @@ plugins {
     id 'application'
 }
 
-group = 'com.habr.j8.manual'
+group = 'ru.ispras.j8.manual'
 version = '1.0'
 
 compileJava {
@@ -15,7 +15,7 @@ compileJava {
 }
 
 application {
-    mainClassName = 'com.habr.j8.manual.Main'
+    mainClassName = 'ru.ispras.j8.manual.Main'
 }
 
 sourceSets {

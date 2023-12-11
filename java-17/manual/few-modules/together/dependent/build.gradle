@@ -3,7 +3,7 @@ plugins {
     id 'application'
 }
 
-group = 'com.habr.j17.manual.fewmodules.together.dependent'
+group = 'ru.ispras.j17.manual.fewmodules.together.dependent'
 version = '1.0'
 
 compileJava {
@@ -15,7 +15,7 @@ compileJava {
 }
 
 application {
-    mainClassName = 'com.habr.j17.manual.fewmodules.together.dependent.Main'
+    mainClassName = 'ru.ispras.j17.manual.fewmodules.together.dependent.Main'
 }
 
 dependencies {

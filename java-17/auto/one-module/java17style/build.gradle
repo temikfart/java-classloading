@@ -3,7 +3,7 @@ plugins {
     id 'application'
 }
 
-group = 'com.habr.j17.auto.onemodule.j17style'
+group = 'ru.ispras.j17.auto.onemodule.j17style'
 version = '1.0'
 
 compileJava {
@@ -15,10 +15,10 @@ compileJava {
 }
 
 application {
-    mainClassName = 'com.habr.j17.auto.onemodule.j17style.Main'
+    mainClassName = 'ru.ispras.j17.auto.onemodule.j17style.Main'
 
     applicationDefaultJvmArgs = [
-            '-Djava.system.class.loader=com.habr.j17.auto.onemodule.j17style.CustomClassLoader',
+            '-Djava.system.class.loader=ru.ispras.j17.auto.onemodule.j17style.CustomClassLoader',
     ]
 }
 

@@ -3,7 +3,7 @@ plugins {
     id 'application'
 }
 
-group = 'com.habr.j17.manual.fewmodules.separately.nodeps.hack.loading'
+group = 'ru.ispras.j17.manual.fewmodules.separately.nodeps.hack.loading'
 version = '1.0'
 
 compileJava {
@@ -15,7 +15,7 @@ compileJava {
 }
 
 application {
-    mainClassName = 'com.habr.j17.manual.fewmodules.separately.nodeps.hack.loading.Main'
+    mainClassName = 'ru.ispras.j17.manual.fewmodules.separately.nodeps.hack.loading.Main'
 }
 
 sourceSets {

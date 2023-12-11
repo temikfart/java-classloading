@@ -3,7 +3,7 @@ plugins {
     id 'application'
 }
 
-group = 'com.habr.j8.auto'
+group = 'ru.ispras.j8.auto'
 version = '1.0'
 
 compileJava {
@@ -15,10 +15,10 @@ compileJava {
 }
 
 application {
-    mainClassName = 'com.habr.j8.auto.Main'
+    mainClassName = 'ru.ispras.j8.auto.Main'
 
     applicationDefaultJvmArgs = [
-            '-Djava.system.class.loader=com.habr.j8.auto.CustomClassLoader',
+            '-Djava.system.class.loader=ru.ispras.j8.auto.CustomClassLoader',
     ]
 }
 
