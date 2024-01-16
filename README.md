@@ -5,25 +5,25 @@ This repository contains the code for all the examples from the article on Habr.
 Each example demonstrates how class loaders are associated with `classpath`/`modulepath`. Examples using Java versions 8 and 17 are considered, where the main difference is the modular system that appeared in Java 9.
 
 Examples:
-- [Java 8](java-8)
+- Java 8
     - [Manual Loading](java-8/manual)
     - [Auto Loading](java-8/auto)
-- [Java 17](java-17)
-    - [Manual](java-17/manual)
-        - [One Module](java-17/manual/one-module)
+- Java 17
+    - Manual
+        - One Module
             - [Java 8 Style](java-17/manual/one-module/java8style)
             - [Java 17 Style](java-17/manual/one-module/java17style)
-        - [Few Modules](java-17/manual/few-modules)
+        - Few Modules
             - [Together](java-17/manual/few-modules/together)
-            - [Separately](java-17/manual/few-modules/separately)
+            - Separately
                 - [No Dependencies](java-17/manual/few-modules/separately/no-deps)
                 - [No Dependencies (hack)](java-17/manual/few-modules/separately/no-deps-hack)
                 - [With Dependencies](java-17/manual/few-modules/separately/with-deps)
-    - [Auto](java-17/auto)
-        - [One Module](java-17/auto/one-module)
+    - Auto
+        - One Module
             - [Java 8 Style](java-17/auto/one-module/java8style)
             - [Java 17 Style](java-17/auto/one-module/java17style)
-        - [Few Modules](java-17/auto/few-modules)
+        - Few Modules
             - [Together](java-17/auto/few-modules/together)
 
 ### Used classes
