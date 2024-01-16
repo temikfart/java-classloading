@@ -6,12 +6,15 @@
 ---
 Modules (declared via `module-info.java`):
 - `manual.fewmodules.separately.withdeps.loading`:
-    - [`Main`](loading/src/ru/ispras/j17/manual/fewmodules/separately/nodeps/loading/Main.java) - a class containing the `main` method, where an instance of the `CustomClassLoader` class is created, the `Cat` class is loaded using it, creating an instance of the class `Cat` and calling the `Cat::talk` method;
-    - [`CustomClassLoader`](loading/src/ru/ispras/j17/manual/fewmodules/separately/nodeps/loading/CustomClassLoader.java) - a class that is an implementation of a custom class loader;
+    - [`Main`](loading/src/ru/ispras/j17/manual/fewmodules/separately/withdeps/loading/Main.java) - a class containing 
+      the `main` method, where an instance of the `CustomClassLoader` class is created, the `Cat` class is loaded using it, creating an instance of the class `Cat` and calling the `Cat::talk` method;
+    - [`CustomClassLoader`](loading/src/ru/ispras/j17/manual/fewmodules/separately/withdeps/loading/CustomClassLoader.java) - a class that is an implementation of a custom class loader;
 - `manual.fewmodules.separately.withdeps.loadable`:
-    - [`Cat`](loadable/src/ru/ispras/j17/manual/fewmodules/separately/nodeps/loadable/Cat.java) - loadable class with the `talk` method, which prints the string *"Meow"* to `stdout`;
+    - [`Cat`](loadable/src/ru/ispras/j17/manual/fewmodules/separately/withdeps/loadable/Cat.java) - loadable class with 
+      the `talk` method, which prints the string *"Meow"* to `stdout`;
 - `manual.fewmodules.separately.withdeps.dependency`:
-    - [Dog](dependency/src/ru/ispras/j17/manual/fewmodules/separately/withdeps/dependency/Dogjava) - used in the module `manual.fewmodules.separately.withdeps.loadable` class with a `talk` method that prints the string *"Woof"* to `stdout`.
+    - [Dog](dependency/src/ru/ispras/j17/manual/fewmodules/separately/withdeps/dependency/Dog.java) - used in the 
+      module `manual.fewmodules.separately.withdeps.loadable` class with a `talk` method that prints the string *"Woof"* to `stdout`.
 
 ### Run
 ---
