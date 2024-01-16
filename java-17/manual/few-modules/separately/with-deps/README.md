@@ -13,7 +13,7 @@ Modules (declared via `module-info.java`):
     - [`Cat`](loadable/src/ru/ispras/j17/manual/fewmodules/separately/withdeps/loadable/Cat.java) - loadable class with 
       the `talk` method, which prints the string *"Meow"* to `stdout`;
 - `manual.fewmodules.separately.withdeps.dependency`:
-    - [Dog](dependency/src/ru/ispras/j17/manual/fewmodules/separately/withdeps/dependency/Dog.java) - used in the 
+    - [`Dog`](dependency/src/ru/ispras/j17/manual/fewmodules/separately/withdeps/dependency/Dog.java) - used in the 
       module `manual.fewmodules.separately.withdeps.loadable` class with a `talk` method that prints the string *"Woof"* to `stdout`.
 
 ### Run

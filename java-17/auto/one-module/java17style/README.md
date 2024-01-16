@@ -6,9 +6,12 @@
 ---
 Modules (declared via `module-info.java`):
 - `auto.onemodule.j17style`:
-    - [`Main`](src/ru/ispras/j17/auto/onemodule/j8style/Main.java) - a class containing a `main` method creating an instance of the `Cat` class and calling the `Cat::talk` method;
-    - [`Cat`](src/ru/ispras/j17/auto/onemodule/j8style/Cat.java) - loadable class with the `talk` method, which prints the string *"Meow"* to `stdout`;
-    - [`CustomClassLoader`](src/ru/ispras/j17/auto/onemodule/j8style/CustomClassLoader.java) - a class that is an implementation of a custom class loader.
+    - [`Main`](src/ru/ispras/j17/auto/onemodule/j17style/Main.java) - a class containing a `main` method creating an 
+      instance of the `Cat` class and calling the `Cat::talk` method;
+    - [`Cat`](src/ru/ispras/j17/auto/onemodule/j17style/Cat.java) - loadable class with the `talk` method, which 
+      prints the string *"Meow"* to `stdout`;
+    - [`CustomClassLoader`](src/ru/ispras/j17/auto/onemodule/j17style/CustomClassLoader.java) - a class that is an 
+      implementation of a custom class loader.
 
 To change the system loader to a custom `CustomClassLoader` in [documentation of the `ClassLoader.getSystemClassLoader()` method](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/ClassLoader.html#getSystemClassLoader()) it is written that for this it is necessary for the JVM to pass the name of the new *system class loader* through the argument `java.system.class.loader`, and also to define a public constructor with a parameter of type `ClassLoader`, which will be passed as `AppClassLoader` when created.
 
