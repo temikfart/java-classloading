@@ -33,11 +33,11 @@ Meow
 ---
 ![Java 17. Manual Loading (dependent and dependency).jpg](../../../../img/Java%2017.%20Manual%20Loading%20(dependent%20and%20dependency).jpg)
 
-*Same as in [[Java 17. Manual Loading (Java 17 style)]]*.
+*Same as in [Java 17. Manual Loading (Java 17 style)](../../one-module/java17style)*.
 
 ### Notes
 ---
-*Same as in [[Java 17. Manual Loading (Java 17 style)]]*.
+*Same as in [Java 17. Manual Loading (Java 17 style)](../../one-module/java17style)*.
 
 - In `module-info.java` of the `dependency` module you need to export the package with the `Cat` class, and in `module-info.java` of the `dependent` module you need to specify the dependency on the `dependency` module:
 
