@@ -1,6 +1,7 @@
 ## Java Class Loading examples
 ---
-This repository contains the code for all the examples from the article on Habr. Each example comes with its own README.md.
+This repository contains the code for all the examples from [the article on Habr](https://habr.com/ru/companies/isp_ras/articles/788618/).
+Each example comes with its own README.md.
 
 Each example demonstrates how class loaders are associated with `classpath`/`modulepath`. Examples using Java versions 8 and 17 are considered, where the main difference is the modular system that appeared in Java 9.
 
